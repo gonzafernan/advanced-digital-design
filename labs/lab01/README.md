@@ -20,7 +20,7 @@ En la figura se puede observar las formas de ondas resultantes de una simulació
 
 ![](./imgs/behavioral_sim.jpg)
 
-## UImplementación: Módulos VIO e ILA
+## Implementación: Módulos VIO e ILA
 Se implementan los IP cores Virtual Input/Output (VIO) e Integrated Logic Analyzer (ILA) para utilizarlos como interfaz y trabajar con el servidor remoto de FPGAs.
 
 A continuación se observa la forma de onda obtenida con ILA ante un trigger al leer un 4 en el estado de los LEDs.

@@ -1,7 +1,13 @@
 bib/
+tmp/
 env/
 lectures/
 run/
+.vscode/
+python/tool/__pycache__/
+
+## Python auxiliary files:
+*.pyc
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
