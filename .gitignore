@@ -5,6 +5,7 @@ lectures/
 run/
 .vscode/
 python/tool/__pycache__/
+project/
 
 ## Python auxiliary files:
 *.pyc

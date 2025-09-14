@@ -1,4 +1,4 @@
-# Diseño Digital Avanzado 2021
+# Diseño Digital Avanzado
 *Fundación Fulgor, Universidad Nacional de Cordoba FCEFyN*
 
 ## Objetivos del curso
@@ -9,7 +9,7 @@ Desarrollar competencia tales como la utilización de un variado espectro de té
 El dictado del curso se orienta a proveer al alumno de la capacidad de diseñar los sistemas de procesamiento de señal, brindándole las herramientas necesarias para que pueda seleccionar las arquitecturas que cumplan con los requerimientos del sistema final.
 
 ## Herramientas utilizadas
-- Vivado 2020.2 y Vitis 2020.2
+- Vivado 2024.2 y Vitis 2024.2
 - Verilog
 - Python 3
 
