@@ -1,4 +1,11 @@
+#set text(lang: "es")
+
+_Diseño Digital Avanzado 2025_
+
 = Laboratorio 1
+
+- Autor: Gonzalo G. Fernandez _\<fernandez.gfg\@gmail.com\>_
+- Fecha: #datetime.today().display("[day]/[month]/[year]")
 
 == Descripción
 El proyecto consiste en la implementación de la arquitectura de la @fig:scheme mediante el uso de Verilog.
@@ -36,6 +43,14 @@ En la @fig:behavioral-sim se puede observar las formas de ondas resultantes de u
 
 == Implementación de módulos VIO e ILA
 
-Se implementan los IP cores _Virtual Input/Output_ (VIO) e _Integrated Logic Analyzer_ (ILA) para utilizarlos como interfaz y trabajar con el servidor remoto de FPGAs.
+Se implementan los IP cores _Virtual Input/Output_ (VIO) e _Integrated Logic Analyzer_ (ILA) para utilizarlos como interfaz y trabajar con el servidor remoto de FPGAs. En la @fig:vio-state y la @fig:ila-waveform se observe el uso de las interfaces gráficas para interacción con los módulos VIO e ILA.
 
-#figure(image("../imgs/ila_waveform.jpg"), caption: []) <fig:ila-waveform>,
+#figure(
+  image("../imgs/vio_state.png"),
+  caption: [Captura del estado de VIO para generar trigger en ILA.],
+) <fig:vio-state>
+
+#figure(
+  image("../imgs/ila_waveform.png"),
+  caption: [Forma de onda obtenida en ILA.],
+) <fig:ila-waveform>
