@@ -11,6 +11,10 @@ project/
 .venv/
 *.pyc
 
+## cocotb auxiliary files:
+*/sim_build/*
+*/results.xml
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
