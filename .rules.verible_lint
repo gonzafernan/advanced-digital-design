@@ -1,0 +1,3 @@
+-always-comb
+-explicit-function-lifetime
+-explicit-task-lifetime
