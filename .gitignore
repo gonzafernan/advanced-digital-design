@@ -25,3 +25,4 @@ project/
 *.lb
 *.fdb_latexmk
 *.synctex.gz
+*.pdf

@@ -1,14 +1,14 @@
 //! @title Switch-controlled shift register - Testbench
 //! @file tb_shiftleds.v
 //! @author Advance Digital Design - Ariel Pola
-//! @date 14-09-2021
+//! @date 19-09-2026
 //! @version Advance Digital Design - Lab01
 
 //! @brief Shift Register controlled by Switchs
-//! @details 
-//! - **ck_rst** is the system reset, which resets the counter and initializes the shiftregister (SR).
+//! @details
+//! - **i_reset** is the system reset, which resets the counter and initializes the shiftregister (SR).
 //! - **i_sw[0]** controls the enable (1) of the counter. The value (0) stops the systems without change of the current state of the counter and the SR.
-//! - The SR is moved only when the counter reached some limit **R0-R3**. 
+//! - The SR is moved only when the counter reached some limit **R0-R3**.
 //! - The choice of the limit can be made at any time during operation with **i_sw[2:1]**.
 //! - **i_sw[3]** chooses the color of the RGB LEDs.
 
@@ -21,8 +21,8 @@
 module tb_shiftleds ();
 
   // Parameters
-  parameter NB_LEDS = `NB_LEDS;  //! Number of LEDs
-  parameter NB_COUNT = `NB_COUNT;  //! Number of bits of the counter
+  parameter integer NB_LEDS = `NB_LEDS;  //! Number of LEDs
+  parameter integer NB_COUNT = `NB_COUNT;  //! Number of bits of the counter
 
   wire [ NB_LEDS-1:0] o_led;  //! LEDs
   wire [ NB_LEDS-1:0] o_led_b;  //! RGB LEDs color blue

@@ -1,11 +1,11 @@
 //! @title Switch-controlled shift register
 //! @author Gonzalo G. Fernandez
-//! @date 14-09-2025
+//! @date 19-09-2026
 //! @version Unit01 - Verilog
 
 //! @brief Shift register controlled by switchs
 //! @details
-//! - **ck_rst** is the system reset, which resets the counter and initializes the shift register
+//! - **i_reset** is the system reset, which resets the counter and initializes the shift register
 //! - **i_sw[0]** controls the enable (1) of the counter. The value (0) stops the systems whithout change of the current state of the counter and the SR.
 //! - The SR is moved only when the counter reached some limit **R0-R3**.
 //! - The choice of the limit can be made at any time during operation with **i_sw[2:1]**.
@@ -16,8 +16,8 @@
 `define NB_LEDS 4
 
 module shiftleds #(
-    parameter NB_COUNT = 32,  //! Number of bits of the counter
-    parameter NB_LEDS  = 4    //! Number of LEDs
+    parameter integer NB_COUNT = 32,  //! Number of bits of the counter
+    parameter integer NB_LEDS  = 4    //! Number of LEDs
 ) (
     output [NB_LEDS-1:0] o_led,    //! LEDs
     output [NB_LEDS-1:0] o_led_b,  //! RGB LEDs color blue
@@ -47,7 +47,7 @@ module shiftleds #(
   shiftreg #(
       .NB_SHIFTREG(NB_LEDS)
   ) u_shiftreg (
-      .o_led  (w_led),
+      .o_shift(w_led),
       .i_valid(w_conn_count_sr),
       .i_reset(~i_reset),
       .clock  (clock)

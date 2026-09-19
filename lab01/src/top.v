@@ -1,6 +1,6 @@
 //! @title Switch-controlled shift register with VIO and ILA interface
 //! @author Gonzalo G. Fernandez
-//! @date 14-09-2025
+//! @date 19-09-2026
 //! @version Advance Digital Design - Lab01
 
 //! @brief Shift register controlled by switchs and VIO ILA IP Cores interface to work with remote FPGAs server
@@ -11,8 +11,8 @@
 
 module top #(
     // Parameters
-    parameter NB_LEDS  = `NB_LEDS,  //! Number of LEDs
-    parameter NB_COUNT = `NB_COUNT  //! Number of bits of the counter
+    parameter integer NB_LEDS  = `NB_LEDS,  //! Number of LEDs
+    parameter integer NB_COUNT = `NB_COUNT  //! Number of bits of the counter
 ) (
     // Ports
     output [NB_LEDS-1:0] o_led,    //! LEDs
@@ -52,20 +52,20 @@ module top #(
   );
 
   //! Virtual Input/Output (VIO) IP Core
-  vio_0 u_vio (
-      .clk(clock),
-      .probe_in0(o_led),
-      .probe_in1(o_led_b),
-      .probe_in2(o_led_g),
-      .probe_out0(w_vio_sel),
-      .probe_out1(w_vio_reset),
-      .probe_out2(w_vio_sw)
+  vio u_vio (
+      .clk_0(clock),
+      .probe_in0_0(o_led),
+      .probe_in1_0(o_led_b),
+      .probe_in2_0(o_led_g),
+      .probe_out0_0(w_vio_sel),
+      .probe_out1_0(w_vio_reset),
+      .probe_out2_0(w_vio_sw)
   );
 
   //! Integrated Logic Analyzer (ILA) IP Core
-  ila_0 u_ila (
-      .clk(clock),
-      .probe0(o_led)
+  ila u_ila (
+      .clk_0(clock),
+      .probe0_0(o_led)
   );
 
 endmodule

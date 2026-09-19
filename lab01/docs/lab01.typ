@@ -1,6 +1,6 @@
 #set text(lang: "es")
 
-_Diseño Digital Avanzado 2025_
+_Diseño Digital Avanzado 2026_
 
 = Laboratorio 1
 
@@ -8,12 +8,12 @@ _Diseño Digital Avanzado 2025_
 - Fecha: #datetime.today().display("[day]/[month]/[year]")
 
 == Descripción
-El proyecto consiste en la implementación de la arquitectura de la @fig:scheme mediante el uso de Verilog.
+El proyecto consiste en la implementación de la arquitectura de la @fig:scheme_vio_ila mediante el uso de Verilog.
 
 #figure(
-  image("../imgs/scheme.png", width: 80%),
+  image("../imgs/scheme_vio_ila.png", width: 80%),
   caption: [Esquema del diseño a implementar.],
-) <fig:scheme>
+) <fig:scheme_vio_ila>
 
 Los nombres en rojo son puertos.
 
@@ -22,6 +22,13 @@ Los nombres en rojo son puertos.
 - El SR se desplaza únicamente cuando el contador llegó a algún límite R0-R3.
 - La elección del límite se puede realizar en cualquier momento del funcionamiento mediante _i_sw[2:1]_.
 - _i_sw[3]_ elige el color de los LEDs RGB.
+
+En la @fig:scheme_top se observa en detalle la arquitectura de los bloques _count_ y _shiftreg_.
+
+#figure(
+  image("../imgs/scheme_top.png", width: 80%),
+  caption: [Esquema del diseño a implementar.],
+) <fig:scheme_top>
 
 == Diseño en Verilog
 

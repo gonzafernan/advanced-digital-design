@@ -1,6 +1,6 @@
 //! @title Counter module
 //! @author Gonzalo G. Fernandez
-//! @date 14-09-2025
+//! @date 19-09-2026
 //! @version Advance Digital Design - Lab01
 
 //! @brief Counter that generates a valid signal when it matches a reference value
@@ -8,7 +8,7 @@
 
 module count #(
     // Parameters
-    parameter NB_COUNT = 32  //! Number of bits of the counter
+    parameter integer NB_COUNT = 32  //! Number of bits of the counter
 ) (
     // Ports
     output o_valid,  //! Valid signal when counter match reference
@@ -20,10 +20,10 @@ module count #(
 );
 
   // localparam
-  localparam R0 = (2 ** (NB_COUNT - 10)) - 1;  //! Limit ref. 23.84Hz @ 100MHz, 32 bit
-  localparam R1 = (2 ** (NB_COUNT - 9)) - 1;  //! Limit ref. 11.92Hz @ 100MHz, 32 bit
-  localparam R2 = (2 ** (NB_COUNT - 8)) - 1;  //! Limit ref. 5.96Hz @ 100MHz, 32 bit
-  localparam R3 = (2 ** (NB_COUNT - 7)) - 1;  //! Limit ref. 2.98Hz @ 100MHz, 32 bit
+  localparam integer R0 = (2 ** (NB_COUNT - 10)) - 1;  //! Limit ref. 23.84Hz @ 100MHz, 32 bit
+  localparam integer R1 = (2 ** (NB_COUNT - 9)) - 1;  //! Limit ref. 11.92Hz @ 100MHz, 32 bit
+  localparam integer R2 = (2 ** (NB_COUNT - 8)) - 1;  //! Limit ref. 5.96Hz @ 100MHz, 32 bit
+  localparam integer R3 = (2 ** (NB_COUNT - 7)) - 1;  //! Limit ref. 2.98Hz @ 100MHz, 32 bit
 
   // var
   wire [NB_COUNT-1:0] w_limit_ref;
@@ -36,6 +36,7 @@ module count #(
   always @(posedge clock) begin : counter_ref
     if (i_reset) begin
       counter <= {NB_COUNT{1'b0}};  // on reset count to 0
+      valid   <= 1'b0;
     end else if (i_enable) begin  // TODO: Change i_sw[0] to name enable with assign
       if (counter >= w_limit_ref) begin
         counter <= {NB_COUNT{1'b0}};

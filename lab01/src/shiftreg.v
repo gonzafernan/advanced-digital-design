@@ -1,16 +1,16 @@
 //! @title Shift register module
 //! @author Gonzalo G. Fernandez
-//! @date 14-09-2025
+//! @date 19-09-2026
 //! @version Advance Digital Design - Lab01
 
-//! @brief Shift register related to LEDs state
+//! @brief Shift register
 
 module shiftreg #(
     // Parameters
-    parameter NB_SHIFTREG = 4  //! Number of LEDs
+    parameter integer NB_SHIFTREG = 4  //! Number of bits
 ) (
     // Ports
-    output [NB_SHIFTREG-1:0] o_led,  //! LEDs
+    output [NB_SHIFTREG-1:0] o_shift,  //! output register
 
     input i_valid,  //! Valid signal to produce shift
     input i_reset,  //! Reset **active high**
@@ -31,7 +31,6 @@ module shiftreg #(
     end
   end
 
-  //! Output to LEDs
-  assign o_led = shiftreg;
+  assign o_shift = shiftreg;
 
 endmodule  // shiftreg
