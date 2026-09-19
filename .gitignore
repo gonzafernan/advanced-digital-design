@@ -8,6 +8,7 @@ python/tool/__pycache__/
 project/
 
 ## Python auxiliary files:
+.venv/
 *.pyc
 
 ## Core latex/pdflatex auxiliary files:
@@ -26,3 +27,4 @@ project/
 *.fdb_latexmk
 *.synctex.gz
 *.pdf
+*.zip
