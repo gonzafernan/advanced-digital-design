@@ -141,3 +141,67 @@ En la @fig:gp01-ex2-rtl-schematic se observa el esquemático RTL obtenido a part
 ) <fig:gp01-ex2-rtl-schematic>
 
 Se implementó el _testbench_ para la implementación del @lst:gp01-ex2-code en el archivo _tb_gp01_ex2.py_ utilizando _cocotb_.
+
+== Ejercicio 3
+Dibuje el esquemático para el siguiente código Verilog. Especifique de forma clara los tamaños de datos para todos los cables y muestre multiplexores, registros y señales de clock y reset.
+
+#figure(
+  block(```verilog
+  module test_module (
+
+      input [31:0] x0,
+      input [1:0] sel,
+      input clk,
+      input rst_n,
+      output reg [31:0] y0
+  );
+
+    reg [31:0] x1, x2, x3;
+    reg  [31:0] y1;
+    wire [31:0] out;
+
+    assign out = (x0 + x1 + x2 + x3 + +y1) >>> 2;
+
+    always @(posedge clk or negedge rst_n) begin
+      if (!rst_n) begin
+        x1 <= 0;
+        x2 <= 0;
+        x3 <= 0;
+      end else if (sel == 2'b00) begin
+        x3 <= x2;
+        x2 <= x1;
+        x1 <= x0;
+      end else if (sel == 2'b01) begin
+        x3 <= x1;
+        x2 <= x0;
+        x1 <= x2;
+      end else begin
+        x3 <= x3;
+        x2 <= x2;
+        x1 <= x0;
+      end
+    end
+
+    always @(posedge clk or negedge rst_n) begin
+      if (!rst_n) begin
+        y1 <= 0;
+        y0 <= 0;
+      end else begin
+        y1 <= y0;
+        y0 <= out;
+      end
+    end
+
+  endmodule
+  ```),
+  caption: [Implementación en Verilog de ejercicio 2 GP01.],
+) <lst:gp01-ex3-code>
+
+
+En la @fig:gp01-ex3-diagram se observa el diagrama en bloque realizado para el selector de operaciones.
+
+#figure(
+  image("../imgs/gp01-ex3-diagram.png", width: 90%),
+  caption: [],
+) <fig:gp01-ex3-diagram>
+
